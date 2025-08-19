@@ -14,7 +14,7 @@ async function main() {
   const pairAddress = process.env.V2_PAIR_ADDRESS;
   const feeCollector = wallet.address; // Or any address you want as fee collector
 
-  // Read full LP balance from the pair (LP token) contract
+  // Read full LP balance from the pair (LP token) contract, make sure to adjust LP token ammount you wish to burn (in this case, this is for the max)
   const lpToken = new ethers.Contract(pairAddress, erc20Abi, provider);
   const liquidity = await lpToken.balanceOf(wallet.address);
   if (liquidity === 0n) {
